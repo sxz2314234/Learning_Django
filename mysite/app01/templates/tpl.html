@@ -1,0 +1,49 @@
+<!--
+ * @Author: git config sxz2314234.name && git config 3218635958@qq.com
+ * @Date: 2025-05-16 21:28:49
+ * @LastEditors: git config sxz2314234.name && git config 3218635958@qq.com
+ * @LastEditTime: 2025-05-16 21:53:16
+ * @FilePath: \Learning_Django\mysite\app01\templates\tpl.html
+ * @Description: 
+ * 
+ * Copyright (c) 2025 by ${git_name_email}, All Rights Reserved. 
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>title</title>
+</head>
+<body>
+    <h1>模板语法的学习</h1>
+    <div>{{n1}}</div>
+
+    <div>{{n2}}</div>
+    <div>{{n2.0}}</div>
+    <div>{{n2.1}}</div>
+    <div>{{n2.2}}</div>
+
+    <!-- 循环展示列表 -->
+     <div>
+        {% for i in n2 %}
+            <div>{{i}}</div>
+        {% endfor %}
+     </div><hr/>
+    
+     <!-- 循环展示字典 -->
+      <ul>
+        {% for k, v in n3.items %}
+            <li>{{k}}: {{v}}</li>
+        {% endfor %}
+      </ul><hr/>
+
+      <!-- 支持条件判断语句 -->
+       <div>
+        {% if n1=="sxz"%}
+            <h1>sxz</h1>
+        {% else %}
+            <h1>其他</h1>
+        {% endif %}
+       </div>
+</body>
+</html>
