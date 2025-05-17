@@ -1,0 +1,32 @@
+<!--
+ * @Author: git config sxz2314234.name && git config 3218635958@qq.com
+ * @Date: 2025-05-17 09:34:55
+ * @LastEditors: git config sxz2314234.name && git config 3218635958@qq.com
+ * @LastEditTime: 2025-05-17 09:45:02
+ * @FilePath: \Learning_Django\mysite\app01\templates\login.html
+ * @Description: 
+ * 
+ * Copyright (c) 2025 by ${git_name_email}, All Rights Reserved. 
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>User Login</title>
+</head>
+<body>
+    <h1>User Login</h1>
+    <form method="post" action="/login/">
+        {% csrf_token %}
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        
+        <span style="color: red;">{{err_msg}}</span><br><br>
+        <input type="submit" value="login">
+        
+    </form>
+</body>
+</html>
