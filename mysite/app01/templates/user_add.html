@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>User Add</title>
+</head>
+<body>
+    <h1>User add</h1>
+    <a href="/users/list">Users List</a>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="user" placeholder="Name" />
+        <input type="text" name="password" placeholder="Password" />
+        <input type="text" name="age" placeholder="Age" />
+        <input type="submit" value="Add User" />
+    </form>
+</body>
+</html>

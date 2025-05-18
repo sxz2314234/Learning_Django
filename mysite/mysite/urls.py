@@ -31,4 +31,16 @@ urlpatterns = [
     
     # test: User login
     path('login/',views.login),
+
+    # test: connect database
+    path('orm/',views.orm),
+    
+    #test:user list
+    path('users/list/',views.users_list),
+    
+    #test:user add
+    path('user/add/',views.user_add),
+    
+    #test:user delete
+    path('user/delete/',views.user_delete),
 ]

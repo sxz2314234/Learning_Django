@@ -72,3 +72,57 @@ def login(request):
             return redirect("http://www.baidu.com")
         else:
             return render(request,'login.html',{"err_msg":"用户名或密码错误"})
+
+
+from app01.models import Department,UserInfo
+def orm(request):
+    # ###### 1.新建数据 ######
+    Department.objects.create(title="市场部")
+    UserInfo.objects.create(name="sxz",password="123456",age=18)
+    """
+    # ###### 2.删除数据 ######
+    UserInfo.objects.filter(name="sxz").delete()
+    Department.objects.filter(title="市场部").delete()
+    
+    # ###### 3.获取数据 ######
+    data_list = [对象,对象,对象]  为QuerySet对象
+    data_list = UserInfo.objects.all() # 获取所有对象
+    for obj in data_list:
+        print(obj.name,obj.password,obj.age)
+    
+    row_obj = UserInfo.objects.filter(id=1).first() # 获取单个对象
+    print(row_obj.name,row_obj.password,row_obj.age)
+    
+    # ###### 4.更新数据 ######
+    UserInfo.objects.filter(id=1).update(name="sxz",password="123456",age=18)
+    """
+    return HttpResponse("ok")
+
+def users_list(request):
+    # 1. 获取所有用户
+    data_list = UserInfo.objects.all()
+    
+    # 2. 渲染数据
+    return render(request,'users_list.html',{"users":data_list})
+
+def user_add(request):
+    # 1. 获取请求方式
+    if request.method == "GET":
+        return render(request,'user_add.html')
+    else:
+        # 2. 获取用户名和密码
+        username = request.POST.get("user")
+        password = request.POST.get("password")
+        age = request.POST.get("age")
+        
+        # 3. 新建用户
+        UserInfo.objects.create(name=username,password=password,age=age)
+        
+        # 4. 重定向到用户列表页面
+        return redirect("/users/list/")
+    
+def user_delete(request):
+    uid=request.GET.get("uid")
+    UserInfo.objects.filter(id=uid).delete()
+    
+    return redirect("/users/list/")
