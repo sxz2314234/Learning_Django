@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>title</title>
+    <!-- .c1为类选择器，#C2为id选择器，li为标签选择器 -->
+    <style>
+        /* 类选择器 */
+        .c1{
+            color: red;
+        }
+        /* id选择器 */
+        #c2{
+            color: blue;
+        }
+        /* li选择器 */
+        .yy li{
+            color: pink;
+        }
+        /* 属性选择器 */
+        input[type="text"]{
+            border:solid 1px red;
+        }
+        /* 后代选择器 */
+        .yy>a{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="c1">中国</div>
+    <div id="c2">广西</div>
+    <div>联通</div>
+    <ul>
+        <li>北京</li>
+        <li>深圳</li>
+        <li>上海</li>
+    </ul>
+    <!-- 属性选择器 -->
+     <input type="text">
+     <input type="password">
+     <div class="yy">
+        <ul>
+            <li>美国</li>
+            <li>日本</li>
+            <li>韩国</li>
+        </ul>
+     </div>
+     <div class="yy">
+        <a >百度</a>
+        <div>
+            <a>谷歌</a>
+        </div>
+     </div>
+</body>
+</html>
